@@ -7,12 +7,11 @@ from time import sleep
 class TestVideoPage(object):
 
     video_data = [
-        ('标题', 'pc链接标题', 'app链接标题', '摘要', '关键词'),
-        ('标题', 'pc链接标题', 'app链接标题', '摘要', '关键词'),
         ('标题', 'pc链接标题', 'app链接标题', '摘要', '关键词')
     ]
 
     def setup_class(self) -> None:
+        # TestIndexPage()
         self.index = TestIndexPage()
         self.videoPage = VideoPage(self.index)
 
@@ -32,16 +31,19 @@ class TestVideoPage(object):
         self.videoPage.input_title(title)
         self.videoPage.switch_pc_title_iframe()
         self.videoPage.input_pc_title(pc)
+        self.videoPage.back_frame()
         self.videoPage.input_app_title(app)
         self.videoPage.click_video()
-        self.videoPage.video_select()
-        self.videoPage.video_selected_ok()
-        self.videoPage.click_photo()
-        self.videoPage.click_library_photo()
-        self.videoPage.click_select_photo()
+        sleep(2)
+        self.videoPage.click_video_select()
+        sleep(1)
+        self.videoPage.click_video_selected()
+        # self.videoPage.click_photo()
+        # self.videoPage.click_library_photo()
+        # self.videoPage.click_select_photo()
         self.videoPage.input_abstract(abstract)
         self.videoPage.input_keyword(keyword)
-        self.videoPage.commit_btn()
+        self.videoPage.click_commit_btn()
 
 
     # 删除视频

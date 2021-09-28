@@ -7,14 +7,15 @@ from time import sleep
 
 class TestAdminLogin(object):
 
+    login_data = [
+        ('admin@cmstop.com', '123456@cmstop.cn', 'CmsTop媒体云1')
+    ]
+
     def setup_class(self) -> None:
         self.driver = webdriver.Chrome()
         self.loginPage = AdminLoginPage(self.driver)
         self.loginPage.goto_login_page()
-
-    login_data = [
-        ('admin@cmstop.com', '123456@cmstop.cn', 'CmsTop媒体云1'),
-    ]
+        # return self.driver
 
     # 测试用户登录
     @pytest.mark.dependency(name='admin_login')

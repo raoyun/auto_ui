@@ -19,7 +19,7 @@ class VideoPage(BasePage):
     title_input = (By.XPATH, '//*[@id="ng-app:cloud-module"]/div[1]/div[1]/div/div[4]/div/div[2]/div[5]/div[1]/textarea[1]')
     # 字号
     # 存在的iframe
-    app_title_iframe = (By.TAG_NAME, 'iframe')
+    pc_title_iframe = (By.TAG_NAME, 'iframe')
     # pc链接标题
     pc_titile_input = (By.XPATH, '/html/body/p[2]')
     # app链接标题
@@ -51,7 +51,7 @@ class VideoPage(BasePage):
     # 摘要
     Abstract_input = (By.XPATH, '//*[@id="ng-app:cloud-module"]/div[1]/div[1]/div/div[4]/div/div[1]/div[4]/textarea')
     # 关键词
-    keyword_input = (By.XPATH, '//*[@id="ng-app:cloud-module"]/div[1]/div[1]/div/div[4]/div/div[1]/div[5]/div/div/div[1]')
+    keyword_input = (By.XPATH, '//*[@id="ng-app:cloud-module"]/div[1]/div[1]/div/div[4]/div/div[1]/div[5]/div/div/div[2]/input')
     # 关联专辑
     # 原创声明
     # 来源名称
@@ -82,7 +82,7 @@ class VideoPage(BasePage):
         self.type_text(text, *self.pc_titile_input)
 
     def switch_pc_title_iframe(self):
-        self.switch_frame(self.app_title_iframe)
+        self.switch_frame(*self.pc_title_iframe)
 
     def input_app_title(self, text):
         self.type_text(text, *self.app_title_input)
