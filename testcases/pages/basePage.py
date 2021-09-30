@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
@@ -11,6 +12,10 @@ class BasePage(object):
     def click(self, *loc):
         self.find_element(*loc).click()
 
+    # def double_click(self, *loc):
+    #     btn = self.find_element(*loc)
+    #     ActionChains(self.driver).double_click(btn).perform()
+
     def clear(self, *loc):
         self.find_element(*loc).clear()
 
@@ -23,3 +28,7 @@ class BasePage(object):
 
     def back_frame(self):
         self.driver.switch_to.default_content()
+
+    # 得到dom节点的文本信息
+    def get_text(self, *loc):
+        return self.driver.find_element(*loc).text
